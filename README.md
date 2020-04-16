@@ -1,0 +1,2 @@
+# mvc_learning_sapmle_shooting
+オブジェクト思考理解のためのサンプルシューティングゲーム
