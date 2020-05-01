@@ -9,9 +9,11 @@ import CommonBase from "js/Common/CommonBase";
 export default class EnemyManager extends CommonBase {
     constructor (){
         super ();
-        this.enemysList = [];
-        this.enemysList.push (new Enemy());
+        this.enemysList = []; // Enemy管理配列
+        this.enemysList.push (new Enemy()); //1体だけ生成
         this.enemysList.forEach(enemy => {
+
+            // 死んだ時のリスナー
             enemy.addEventListener ('death', (e) => {
                 // this.enemysListから死んだenemy を削除
                 this.enemysList = this.enemysList.filter(ene => ene != enemy);
