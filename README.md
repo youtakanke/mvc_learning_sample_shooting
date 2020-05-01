@@ -9,6 +9,9 @@
 * UI　　//ゲームのステータス表示画面　HP、スコアなど
 * Bullet　　//弾丸　playerや敵の発射する弾のクラス
 
+* ↓これを改修して行きます。
+https://youtakanke.github.io/mvc_learning_sapmle_shooting/dist/
+
 ### 環境構築手順
 nodeをインストールされてない場合、  
 インストールして下さい。  
