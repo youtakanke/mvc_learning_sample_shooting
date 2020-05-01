@@ -1,0 +1,26 @@
+{
+  "name": "mvc_learning_sapmle_shooting",
+  "version": "1.0.0",
+  "description": "オブジェクト思考理解のためのサンプルシューティングゲーム * GameManager //基軸となるメインクラス  ここで全てのManagerクラスをnewし、制御する   　　　　  　　// ゲームスタート、クリア、ゲームオーバーなども   * UIManager //ゲームのステータス表示画面　HP、スコアなど * EnemyManager //敵を出したり管理するクラス　何体だすとか　どのタイミング出だすとか * PlayerManager //自機の管理するクラス　キー入力による移動や玉発射制御など * MainBody //機体クラス　これをSperClassにする HP座標パラメータなど共通パラメータを定義 * Emey //敵キャラ　MainBodyを継承してください * Player //自機　MainBodyを継承してください * Bullet //弾丸　playerの発射する弾のクラス * Managerクラスと、MainBodyクラス、Bulletクラスは EventTargetクラスを継承してください",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --hot --inline --watch-content-base --content-base public/ --open-page index.html "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youtakanke/mvc_learning_sapmle_shooting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youtakanke/mvc_learning_sapmle_shooting/issues"
+  },
+  "homepage": "https://github.com/youtakanke/mvc_learning_sapmle_shooting#readme",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
