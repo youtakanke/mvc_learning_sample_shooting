@@ -19,17 +19,20 @@ export default class Player extends UnitBase {
      * requestAnimationFrameから自動的にcallされ続けます。
      */
     update () {
-        // 矢印キー　←↑→↓で動くようにしてください。
+        // 矢印キー　←↑→↓で動くようにしてください。googleで「js keycode」など検索してみて下さい。
 
-        // スペースキーを押すとBulletが発射されるようにして下さい
+        // スペースキーを押すとBulletが発射されるようにして下さい。
+        // Enemyクラスを参考にしてください。
 
         // 敵の弾に当たったらダメージを受けるようにして下さい。
         const bullet = HitTest.getHitObjectByClassName(this, "Bullet");
         if(bullet) {
-            // ダメージを与えて下さい
+            // ダメージを与えて下さい。↓コメントアウトを外していただくですがw
             // this.setDamage (bullet.damage);
+            // ↑さて、setDamageはどこで定義されているでしょうか？
 
             // HPが0になったら死亡状態にし、MainManageに通知して下さい。
+            // そして、MainManager側に、その通知を受け取れるようにして下さい。
             // console.log (this.HP);
         }
     }

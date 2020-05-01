@@ -15,7 +15,7 @@ export default class MainManager {
         //自機を生成（インスタンス化）しています。
         //Playerクラスにて課題を確認し、動くようにしたり、弾をとばせたり
         //するようにしてください。
-        this.player = new Player();
+        this.player = new Player ();
 
         //敵のマネージャークラスです
         //EnemyManagerクラスにて課題を確認し、色々な敵を作ったり、
