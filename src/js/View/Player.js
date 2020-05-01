@@ -14,6 +14,10 @@ export default class Player extends UnitBase {
         this.setHeight(40);
     }
     
+    /**
+     * EnterFrame.jsの中で
+     * requestAnimationFrameから自動的にcallされ続けます。
+     */
     update () {
         // 矢印キー　←↑→↓で動くようにしてください。
 
@@ -22,9 +26,10 @@ export default class Player extends UnitBase {
         // 敵の弾に当たったらダメージを受けるようにして下さい。
         const bullet = HitTest.getHitObjectByClassName(this, "Bullet");
         if(bullet) {
+            // ダメージを与えて下さい
+            // this.setDamage (bullet.damage);
 
             // HPが0になったら死亡状態にし、MainManageに通知して下さい。
-            // this.setDamage (bullet.damage);
             // console.log (this.HP);
         }
     }

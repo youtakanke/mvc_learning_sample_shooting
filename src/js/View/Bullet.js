@@ -39,6 +39,10 @@ export default class Bullet extends CommonBase {
     setDamage (value) {
         this.damage = value;
     }
+    /**
+     * EnterFrame.jsの中で
+     * requestAnimationFrameから自動的にcallされ続けます。
+     */
     update () {
         // speedと vectorから、弾を移動させてください
         //this.x += ?

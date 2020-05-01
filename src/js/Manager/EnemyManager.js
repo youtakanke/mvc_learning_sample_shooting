@@ -20,6 +20,11 @@ export default class EnemyManager extends CommonBase {
             });
         });
     }
+    
+    /**
+     * EnterFrame.jsの中で
+     * requestAnimationFrameから自動的にcallされ続けます。
+     */
     update () {
     }
 }

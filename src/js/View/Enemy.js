@@ -14,11 +14,15 @@ export default class Enemy extends UnitBase {
         this.setHP(5);
         this.crashScore = 10;
         setInterval(() => {
+            // 一定間隔で弾を発射
             const bullet = new Bullet (this.x - 10, this.y);
             bullet.setSpeed(-4);
         }, 400)
     }
-
+    /**
+     * EnterFrame.jsの中で
+     * requestAnimationFrameから自動的にcallされ続けます。
+     */
     update (){
         // 動きはoverrideして下さい。↓のサンプルは上下運動
         this.deg = this.deg || 0;
