@@ -16,7 +16,6 @@ export default class MainManager {
         this.enemyManager = new EnemyManager ();
 
         //UIを表示させて下さい。UIクラスはViewフォルダにあります
-        new UI ();
 
     }
 }
