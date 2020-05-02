@@ -27,8 +27,11 @@ node --version
 バージョンが表示されなければ入っていません。  
 -
   
-次にrepositoryをcloneして下さい。
-※clone方法はこちら
+次にrepositoryをご自身のアカウントにforkします。  
+ページ右上の方にforkのボタンがあります。  
+  
+forkできたらcloneして下さい。
+※clone方法は [こちら](https://help.github.com/ja/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
 ターミナル　or power shellにて
 ```
@@ -42,3 +45,4 @@ npm install
 ```
 npm run start
 ```
+これで、自動でブラウザが起動されれば成功です。
