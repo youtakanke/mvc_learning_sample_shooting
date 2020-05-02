@@ -29,11 +29,12 @@ node --version
   
 次にrepositoryをご自身のアカウントにforkします。  
 ページ右上の方にforkのボタンがあります。  
+※forkのやり方詳細は[こちら](https://help.github.com/ja/github/getting-started-with-github/fork-a-repo)  
   
 forkできたらcloneして下さい。
 ※clone方法は [こちら](https://help.github.com/ja/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
-ターミナル　or power shellにて
+ターミナル　or powerShellにて ↓意味わからなければ聞いて下さい。
 ```
 cd クローンしたディレクトリのパス
 ```
