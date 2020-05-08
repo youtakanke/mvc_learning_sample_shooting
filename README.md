@@ -10,7 +10,7 @@
 * Bullet　　//弾丸　playerや敵の発射する弾のクラス
 
 * ↓この状態から改修して、シューティングゲームを完成させます。
-https://youtakanke.github.io/mvc_learning_sapmle_shooting/dist/
+https://youtakanke.github.io/mvc_learning_sample_shooting/dist/
 
 ### 環境構築手順
 nodeをインストールされてない場合、  
