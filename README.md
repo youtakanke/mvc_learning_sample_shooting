@@ -1,4 +1,4 @@
-# mvc_learning_sapmle_shooting
+# mvc_learning_sample_shooting
 オブジェクト指向理解のためのサンプルシューティングゲーム
 * MainManager　　//基軸となるメインクラス  ここで全てのManagerクラスをnewし、制御する ゲームスタート、クリア、ゲームオーバーなども  
 * EnemyManager　　//敵を出したり管理するクラス　何体だすとか　どのタイミング出だすとか
