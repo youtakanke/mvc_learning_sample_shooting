@@ -20,6 +20,34 @@ export default class Player extends UnitBase {
      */
     update () {
         // 矢印キー　←↑→↓で動くようにしてください。googleで「js keycode」など検索してみて下さい。
+        document.addEventListener('keydown', (event) => {
+
+            //スクロールを無効化
+            if(event.preventDefault){
+                event.preventDefault();
+            }
+
+            let keyCode = event.keyCode;
+            console.log(keyCode);
+            switch(keyCode){
+                //上
+                case 38:
+                    this.y--;
+                    break;
+                //左
+                case 37:
+                    this.x--;
+                    break;
+                //右
+                case 39:
+                    this.x++;
+                    break;
+                //下
+                case 40:
+                    this.y++;
+                    break;
+            }
+        })
 
         // スペースキーを押すとBulletが発射されるようにして下さい。
         // Enemyクラスを参考にしてください。
