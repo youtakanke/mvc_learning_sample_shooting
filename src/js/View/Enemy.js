@@ -29,7 +29,7 @@ export default class Enemy extends UnitBase {
         this.y = Math.cos(this.deg * (Math.PI / 180)) * 3 + this.y;
         this.deg++;
 
-        const bullet = HitTest.getHitObjectByClassName ("Bullet");
+        const bullet = HitTest.getHitObjectByClassName (this, "Bullet");
         if (bullet) {
             // 弾にあたったらダメージを与え、EnemyManagerに通知して下さい。
             // bullet.damage
