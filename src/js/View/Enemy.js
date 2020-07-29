@@ -11,6 +11,9 @@ export default class Enemy extends UnitBase {
         super ();
         this.x = 400;
         this.y = 200;
+        this.scale = 20;
+        this.width = this.scale;
+        this.height = this.scale;
         this.setHP(5);
         this.crashScore = 10;
         setInterval(() => {
@@ -42,7 +45,7 @@ export default class Enemy extends UnitBase {
     draw (context) {
         context.beginPath () ;
 
-        context.arc( this.x, this.y, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
+        context.arc( this.x, this.y, this.scale, 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
         context.fillStyle = "rgba(255,0,0,0.8)" ;
         context.fill() ;
 
