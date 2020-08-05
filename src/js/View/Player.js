@@ -20,10 +20,23 @@ export default class Player extends UnitBase {
      */
     update () {
         // 矢印キー　←↑→↓で動くようにしてください。googleで「js keycode」など検索してみて下さい。
-        this.x = this.x + playerHorizontal;
-        this.y = this.y + playerVertical;
-        playerHorizontal = 0; //1fずつリセット
-        playerVertical = 0; //1fずつリセット
+        let xFlag = 0; //戻るタイミング他にないので更新毎で初期値へ
+        let yFlag = 0;
+        let diagonal = 1;
+
+        if(rightFlag != 0 || leftFlag != 0){
+          xFlag = 1;
+        }
+        if(upFlag != 0 || downFlag != 0){
+          yFlag = 1;
+        }
+        if(xFlag != 0 && yFlag != 0){ //斜め移動判定
+          diagonal = Math.sqrt(2); //斜め移動の時xyに√2を掛けて足すことで、斜めに1.141でなく1移動させる
+        }
+
+        this.x = this.x + (rightFlag - leftFlag) * 4 / diagonal; //5は移動スピード
+        this.y = this.y + (upFlag - downFlag) * 4 / diagonal;
+
         // スペースキーを押すとBulletが発射されるようにして下さい。
         // Enemyクラスを参考にしてください。
 
@@ -60,20 +73,33 @@ export default class Player extends UnitBase {
     }
 }
 
-let playerHorizontal = 0; //1f内での総量
-let playerVertical = 0; //1f内での総量
+let rightFlag = 0;
+let leftFlag = 0;
+let upFlag = 0;
+let downFlag = 0;
 
 addEventListener('keydown',(e) => {
-  if(e.keyCode == 39){ //right
-    playerHorizontal += 5;
+  switch(e.keyCode){ //キー押しっぱはkeydown→keypressを繰り返す為、1fずつタイミング空くのでフラグで立ち上がりとオンをとる
+    case 39 : rightFlag = 1;
+    break;
+    case 37 : leftFlag = 1;
+    break;
+    case 40 : upFlag = 1;
+    break;
+    case 38 : downFlag = 1;
+    break;
   }
-  if(e.keyCode == 37){ //left
-    playerHorizontal += -5;
+},false);
+
+addEventListener('keyup',(e) => {
+  switch(e.keyCode){
+    case 39 : rightFlag = 0;
+    break;
+    case 37 : leftFlag = 0;
+    break;
+    case 40 : upFlag = 0;
+    break;
+    case 38 : downFlag = 0;
+    break;
   }
-  if(e.keyCode == 40){ //up
-    playerVertical += 5;
-  }
-  if(e.keyCode == 38){ //down
-    playerVertical += -5;
-  }
-});
+},false);
