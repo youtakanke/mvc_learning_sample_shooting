@@ -13,14 +13,40 @@ export default class Player extends UnitBase {
         this.setWidth(40);
         this.setHeight(40);
 
-        this.xFlag = new Boolean(false); //戻るタイミング他にないので更新毎で初期値へ
-        this.yFlag = new Boolean(false);
+        this.xFlag = false; //戻るタイミング他にないので更新毎で初期値へ
+        this.yFlag = false;
         this.diagonal = 1;
 
-        this.rightFlag = new Boolean(false);
-        this.leftFlag = new Boolean(false);
-        this.upFlag = new Boolean(false);
-        this.downFlag = new Boolean(false);
+        this.rightFlag = false;
+        this.leftFlag = false;
+        this.upFlag = false;
+        this.downFlag = false;
+
+        addEventListener('keydown',(e) => {
+          switch(e.keyCode){ //キー押しっぱはkeydown→keypressを繰り返す為、1fずつタイミング空くのでフラグで立ち上がりとオンをとる
+            case 39 : this.rightFlag = true;
+            break;
+            case 37 : this.leftFlag = true;
+            break;
+            case 40 : this.upFlag = true;
+            break;
+            case 38 : this.downFlag = true;
+            break;
+          }
+        },false);
+
+        addEventListener('keyup',(e) => {
+          switch(e.keyCode){
+            case 39 : this.rightFlag = false;
+            break;
+            case 37 : this.leftFlag = false;
+            break;
+            case 40 : this.upFlag = false;
+            break;
+            case 38 : this.downFlag = false;
+            break;
+          }
+        },false);
     }
 
     /**
@@ -31,42 +57,15 @@ export default class Player extends UnitBase {
         // 矢印キー　←↑→↓で動くようにしてください。googleで「js keycode」など検索してみて下さい。
         console.log(this.rightFlag);
 
-
-        addEventListener('keydown',(e) => {
-          switch(e.keyCode){ //キー押しっぱはkeydown→keypressを繰り返す為、1fずつタイミング空くのでフラグで立ち上がりとオンをとる
-            case 39 : this.rightFlag = new Boolean(true);
-            break;
-            case 37 : this.leftFlag = new Boolean(true);
-            break;
-            case 40 : this.upFlag = new Boolean(true);
-            break;
-            case 38 : this.downFlag = new Boolean(true);
-            break;
-          }
-        },false);
-
-        addEventListener('keyup',(e) => {
-          switch(e.keyCode){
-            case 39 : this.rightFlag = new Boolean(false);
-            break;
-            case 37 : this.leftFlag = new Boolean(false);
-            break;
-            case 40 : this.upFlag = new Boolean(false);
-            break;
-            case 38 : this.downFlag = new Boolean(false);
-            break;
-          }
-        },false);
-
         if(this.rightFlag || this.leftFlag){
-          this.xFlag = new Boolean(true);
+          this.xFlag = true;
         } else{
-          this.xFlag = new Boolean(false);
+          this.xFlag = false;
         }
         if(this.upFlag || this.downFlag){
-          this.yFlag = new Boolean(true);
+          this.yFlag = true;
         } else{
-          this.yFlag = new Boolean(false);
+          this.yFlag = false;
         }
         if(this.xFlag && this.yFlag){ //斜め移動判定
           this.diagonal = Math.sqrt(2); //斜め移動の時xyに√2を掛けて足すことで、斜めに1.141でなく1移動させる
