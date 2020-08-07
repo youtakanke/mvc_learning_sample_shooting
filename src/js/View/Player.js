@@ -22,7 +22,7 @@ export default class Player extends UnitBase {
         this.upFlag = false;
         this.downFlag = false;
 
-        addEventListener('keydown',(e) => {
+        window.addEventListener('keydown',(e) => {
           switch(e.keyCode){ //キー押しっぱはkeydown→keypressを繰り返す為、1fずつタイミング空くのでフラグで立ち上がりとオンをとる
             case 39 : this.rightFlag = true;
             break;
@@ -35,7 +35,7 @@ export default class Player extends UnitBase {
           }
         },false);
 
-        addEventListener('keyup',(e) => {
+        window.addEventListener('keyup',(e) => {
           switch(e.keyCode){
             case 39 : this.rightFlag = false;
             break;
