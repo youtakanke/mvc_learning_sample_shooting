@@ -1,12 +1,13 @@
 import UnitBase from "js/View/UnitBase";
 import HitTest from "js/Util/HitTest";
+import Bullet from "./Bullet";
 
 /**
  * 自機クラス
  */
 export default class Player extends UnitBase {
     constructor () {
-        super (); //親constructor → MainManager.js
+        super ();
         this.x = 100;
         this.y = 200;
         this.setHP(100);
@@ -23,6 +24,15 @@ export default class Player extends UnitBase {
         this.downFlag = false;
 
         window.addEventListener('keydown',(e) => {
+          switch(e.keyCode){
+            case 32 :
+            const bullet = new Bullet (this.x + this.x / 2, this.y);
+            bullet.setSpeed(4);
+            break;
+          }
+        },false);
+
+        window.addEventListener('keydown',(e) => {
           switch(e.keyCode){ //キー押しっぱはkeydown→keypressを繰り返す為、1fずつタイミング空くのでフラグで立ち上がりとオンをとる
             case 39 : this.rightFlag = true;
             break;
@@ -31,6 +41,8 @@ export default class Player extends UnitBase {
             case 40 : this.upFlag = true;
             break;
             case 38 : this.downFlag = true;
+            break;
+            case 32 : this.shootFlag = 1;
             break;
           }
         },false);
@@ -45,6 +57,8 @@ export default class Player extends UnitBase {
             break;
             case 38 : this.downFlag = false;
             break;
+            case 32 : this.shootFlag = 0;
+            break;
           }
         },false);
     }
@@ -54,9 +68,8 @@ export default class Player extends UnitBase {
      * requestAnimationFrameから自動的にcallされ続けます。
      */
     update () {
+      console.log(this.shootFlag);
         // 矢印キー　←↑→↓で動くようにしてください。googleで「js keycode」など検索してみて下さい。
-        console.log(this.rightFlag);
-
         if(this.rightFlag || this.leftFlag){
           this.xFlag = true;
         } else{
@@ -78,6 +91,7 @@ export default class Player extends UnitBase {
 
         // スペースキーを押すとBulletが発射されるようにして下さい。
         // Enemyクラスを参考にしてください。
+
 
         // 敵の弾に当たったらダメージを受けるようにして下さい。
         const bullet = HitTest.getHitObjectByClassName(this, "Bullet");

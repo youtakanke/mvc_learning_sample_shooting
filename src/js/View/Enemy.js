@@ -40,7 +40,7 @@ export default class Enemy extends UnitBase {
     }
     /**
      * 描画
-     * @param {context} context 
+     * @param {context} context
      */
     draw (context) {
         context.beginPath () ;
