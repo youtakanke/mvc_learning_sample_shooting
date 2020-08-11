@@ -23,14 +23,7 @@ export default class Player extends UnitBase {
         this.upFlag = false;
         this.downFlag = false;
 
-        window.addEventListener('keydown',(e) => {
-          switch(e.keyCode){
-            case 32 :
-            const bullet = new Bullet (this.x + this.x / 2, this.y);
-            bullet.setSpeed(4);
-            break;
-          }
-        },false);
+        this.shootFlag = false;
 
         window.addEventListener('keydown',(e) => {
           switch(e.keyCode){ //キー押しっぱはkeydown→keypressを繰り返す為、1fずつタイミング空くのでフラグで立ち上がりとオンをとる
@@ -42,7 +35,21 @@ export default class Player extends UnitBase {
             break;
             case 38 : this.downFlag = true;
             break;
-            case 32 : this.shootFlag = 1;
+            case 32 : this.shootFlag = true;
+
+            if(this.shootFlag === true){
+              do{
+                const bullet = new Bullet (this.x + this.x / 2, this.y);
+                               bullet.setSpeed(4);
+              }
+              while(this.shootFlag === false){
+                setTimeout(() => {
+                 bullet = new Bullet (this.x + this.x / 2, this.y);
+                               bullet.setSpeed(4);
+                },300);
+              }
+            }
+
             break;
           }
         },false);
@@ -57,7 +64,7 @@ export default class Player extends UnitBase {
             break;
             case 38 : this.downFlag = false;
             break;
-            case 32 : this.shootFlag = 0;
+            case 32 : this.shootFlag = false;
             break;
           }
         },false);
